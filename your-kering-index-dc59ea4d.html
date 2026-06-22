@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            padding: 2rem 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* hero 区域 – 更偏文字卡片风格 */
+        .hero-card {
+            background: #ffffffed;
+            border-radius: 1.6rem;
+            padding: 2.8rem 2.4rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eae9e3;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f2a2e;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #4f5a5e;
+            max-width: 720px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            background: #ecf0ec;
+            padding: 0.3rem 1rem 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #3f5548;
+            border: 1px solid #d6ddd6;
+        }
+
+        /* 网格卡片区 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.4rem;
+            padding: 1.8rem 1.8rem 2rem 1.8rem;
+            border: 1px solid #e3e2db;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s ease, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            font-size: 1.7rem;
+            margin-bottom: 0.6rem;
+            display: block;
+            color: #577a5e;
+        }
+
+        .card h3 {
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1c2b2b;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #455454;
+            font-size: 0.96rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card .footnote {
+            font-size: 0.85rem;
+            color: #747f7f;
+            border-left: 2px solid #cfded1;
+            padding-left: 0.8rem;
+            margin-top: 0.6rem;
+        }
+
+        /* 单行大卡片 */
+        .wide-card {
+            background: #ffffff;
+            border-radius: 1.4rem;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e0dfd8;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .wide-card h2 {
+            font-weight: 500;
+            font-size: 1.35rem;
+            margin-bottom: 0.9rem;
+            color: #1e3636;
+        }
+
+        .wide-card p {
+            color: #3f4e4e;
+        }
+
+        .inline-link {
+            color: #3d6b4f;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #b6cfb6;
+            transition: border-color 0.1s, color 0.1s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #3d6b4f;
+            color: #1e452b;
+        }
+
+        /* 提示行 (faq 摘要风格) */
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: #f0f2ec;
+            border-radius: 1.4rem;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #dbded5;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+        }
+
+        .faq-item {
+            flex: 1 1 180px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #2c4747;
+            margin-bottom: 0.15rem;
+            letter-spacing: 0.02em;
+        }
+
+        .faq-item span {
+            font-size: 0.87rem;
+            color: #4b6262;
+        }
+
+        /* 底部区域 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7e8b86;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e2da;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero-card {
+                padding: 2rem 1.4rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .faq-mini {
+                flex-direction: column;
+                padding: 1.4rem;
+            }
+
+            .faq-item {
+                flex: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero 卡片：温和介绍站点定位 -->
+        <div class="hero-card">
+            <div class="hero-title">关于这个站点</div>
+            <div class="hero-sub">这里不是功能繁杂的平台，而是一处围绕<strong>开云(kaiyun)</strong> 展开的信息聚合入口。我们更希望用克制的篇幅，呈现清晰的方向。</div>
+            <span class="hero-tagline">产品说明 · 以简驭繁</span>
+        </div>
+
+        <!-- 双列亮点卡片 -->
+        <div class="grid-2col">
+            <div class="card">
+                <span class="card-icon">◈</span>
+                <h3>摘要 · 它是什么</h3>
+                <p><a href="https://your-kering.com" class="inline-link">开云(kaiyun)</a> 的定位更接近一个信息集散与产品聚合的站点。它不追求泛滥的资讯轰炸，而是尝试把合适的内容组织成可浏览的单元。如果你喜欢轻量、不烫手的浏览体验，或许会感到契合。</p>
+                <div class="footnote">页面本身保持克制，不主动推送。</div>
+            </div>
+            <div class="card">
+                <span class="card-icon">◇</span>
+                <h3>亮点 · 用户视角</h3>
+                <p>从结构上看，<strong>开云(kaiyun)</strong> 没有堆砌复杂的菜单层级。所有版块都围绕「可读」「可查」展开，弱化营销语气，强调信息本身。内容的组织方式偏向于静态展示，适合需要快速扫读而非被引导点击的场景。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">▹</span>
+                <h3>使用建议</h3>
+                <p>如果你希望快速了解站点的内容框架，可以直接浏览主要分区。每个栏目都配有简短的说明，避免费解术语。建议使用桌面或平板设备访问，阅读区布局会更加清晰；手机端同样做了适配，但大屏的卡片呼吸感更充足。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⧁</span>
+                <h3>可信 · 但不过度承诺</h3>
+                <p>站点不收集不必要的个人信息，也没有隐晦的第三方嵌入。链接均指向站点自身内容或明确标注的外部来源。我们坚持一个原则：不夸大功能、不暗示稀缺、不制造焦虑。如果你对某些页面有疑问，可以通过站点内的说明线索自行判断。</p>
+            </div>
+        </div>
+
+        <!-- 场景与提示 — 宽卡片 -->
+        <div class="wide-card">
+            <h2>适用场景 · 以及一点提醒</h2>
+            <p>你可以把这里当作一个安静的资料角：比如在需要了解某类产品框架时，或是想对比不同模块的定位。站点内容更新节奏平缓，不会频繁弹窗或推送。另外，第一次访问时可能会觉得信息密度偏低——这是刻意为之，我们希望每个分区都保留呼吸感，而不是堆满链接。如果你在寻找一个直白、不绕弯子的介绍页，<a href="https://your-kering.com" class="inline-link">开云(kaiyun)</a> 这种风格或许刚好合适。</p>
+            <p style="margin-top: 0.8rem; color: #56705b;">⏺ 请注意：站点内容均基于当前可见版本编写，不涉及未来功能预告。</p>
+        </div>
+
+        <!-- FAQ 摘要风格卡片 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <strong>📌 是否需要注册？</strong>
+                <span>不强制。浏览公开内容无需账号，部分互动功能可能后续开放。</span>
+            </div>
+            <div class="faq-item">
+                <strong>📌 信息可靠吗？</strong>
+                <span>页面内容由站方整理，引用部分会标注来源。建议交叉参考。</span>
+            </div>
+            <div class="faq-item">
+                <strong>📌 移动端适配如何？</strong>
+                <span>卡片会自动调整，但宽屏下的并排阅读体验更佳。</span>
+            </div>
+            <div class="faq-item">
+                <strong>📌 有其他疑问？</strong>
+                <span>站点目前没有单独留言区，但页面底部保留联系示意。</span>
+            </div>
+        </div>
+
+        <!-- 低调的访问说明 -->
+        <div style="background: #eef1ea; border-radius: 1.2rem; padding: 1.2rem 1.8rem; border: 1px solid #d6dbd2; margin-bottom: 2rem;">
+            <p style="color: #3b5545; font-size: 0.95rem;">
+                <span style="font-weight: 450;">关于访问：</span> 本网页为介绍性页面，直接通过浏览器打开即可。所有链接均指向 <a href="https://your-kering.com" class="inline-link" style="border-bottom: 1px solid #acc2ac;">开云(kaiyun)</a> 自身域名，无重定向中间页。你可以随时关闭页面，不产生任何追踪。
+            </p>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            <span>产品说明式索引 · 内容仅基于当前版本 · 无诱导性表述</span><br>
+            <span style="font-size: 0.7rem; color: #91a29a;">页面呈现 2025 · 保持克制</span>
+        </div>
+
+    </div>
+</body>
+</html>
